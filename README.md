@@ -1,6 +1,6 @@
 [this_repo]: https://github.com/itq-development/internship-exercise2
 [github_join_page]: https://github.com/join
-[github_first_excercise]: https://github.com/itq-development/nternship-exercise1/
+[github_first_excercise]: https://github.com/itq-development/internship-exercise1/
 
 
 exercise 2

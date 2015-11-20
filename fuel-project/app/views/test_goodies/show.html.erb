@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fuel liters:</strong>
+  <%= @test_goody.fuel_liters %>
+</p>
+
+<p>
+  <strong>Journey km:</strong>
+  <%= @test_goody.journey_km %>
+</p>
+<p>
+  <strong>Consumption:</strong>
+  <%= @test_goody.consumption %>
+</p>
+<%= link_to 'Edit', edit_test_goody_path(@test_goody) %> |
+<%= link_to 'Back', test_goodies_path %>

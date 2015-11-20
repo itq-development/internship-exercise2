@@ -1,0 +1,25 @@
+<%= form_for(@test_goody) do |f| %>
+  <% if @test_goody.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_goody.errors.count, "error") %> prohibited this test_goody from being saved:</h2>
+
+      <ul>
+      <% @test_goody.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fuel_liters %><br>
+    <%= f.number_field :fuel_liters %>
+  </div>
+  <div class="field">
+    <%= f.label :journey_km %><br>
+    <%= f.number_field :journey_km %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Test Goodies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fuel liters</th>
+      <th>Journey km</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_goodies.each do |test_goody| %>
+      <tr>
+        <td><%= test_goody.fuel_liters %></td>
+        <td><%= test_goody.journey_km %></td>
+        <td><%= test_goody.consumption %></td>
+        <td><%= link_to 'Show', test_goody %> l/100km</td>
+        <td><%= link_to 'Edit', edit_test_goody_path(test_goody) %></td>
+        <td><%= link_to 'Destroy', test_goody, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test goody', new_test_goody_path %>

@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form(name="journey-info", method="post")
+        div.input
+            div.label Fuel (in liters)
+                input(type="text", name="fuel")
+            div.label Journey driven (in #{units})
+                input(type="text", name="length")
+        div.action
+            input(type="submit", value="Count average")

@@ -1,11 +1,11 @@
-extends layout
+extends layout-base
 
 block content
     form(name="journey-info", method="post")
         div.input
             div.label Fuel (in liters)
-                input(type="number", name="fuel")
-            div.label Journey driven (in #{units})
-                input(type="number", name="length")
+                input(type="number", name="fuel-value")
+            div.label Journey driven (in #{unitType})
+                input(type="number", name="journey-length")
         div.action
             input(type="submit", value="Count average")

@@ -16,6 +16,14 @@ input {
     margin-top: 10px;
 }
 
+#average-consumption-message{
+    font-size: 20px;
+}
+
+#average-consumption-result{
+    font-weight: bold;
+}
+
 .action{
     margin-top: 10px;
 }

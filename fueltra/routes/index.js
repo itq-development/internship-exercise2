@@ -25,8 +25,6 @@ router.post('/', function (req, res) {
         unitsNumber: unitsToCountAverage,
         consumptionAverage: fuelConsumptionPerUnit(fuel, length) * unitsToCountAverage
     });
-    //console.log(fuelConsumptionPerUnit(fuel, length) * 100);
-    //console.log(req.body);
 });
 
 module.exports = router;

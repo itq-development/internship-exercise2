@@ -1,15 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var averageCountRange = 100;
-var unitType = 'Kilometers';
-
 /* GET home page. */
+
 router.get('/', function (req, res) {
-    res.render('index', {
-        unitType: unitType,
-        averageCountRange: averageCountRange
-    });
+    var indexController = require('../controllers/index.controller.js');
+    indexController.render(req,res);
 });
 
 function getValuableMin(precision) {

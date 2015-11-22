@@ -1,0 +1,71 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <title>Alina Izvozchikova</title>
+        <link rel="stylesheet" href="{% static "calculate_f/css/main.css"%}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+
+	<body>
+
+		<header class="navbar" style="margin-top:1px;" >
+			<div align="center">
+                <img src="http://x-lines.ru/letters/i/cyrillicoutline/0378/48d100/28/0/mfzzkeddcfznya5bpttzk5dbqt11yamqrbozc3m1cfuskeddcf3ny3uicisnya5xp33zk5moqtws65o.png" border="0" />
+                <img src={% static "calculate_f/img/avtocek.png" %}  width="150" alt="Road_and_Grass" style="position: absolute;"/>
+            </div>
+        </header>
+
+        <!--container -->
+		<div class="jumbotron" style="margin-top:-17px;" >
+            <div class="container" align="center" style="color:#787878">
+            <div align="center" style="margin-top:-22px;margin-bottom:10px;">
+                <b>Choice your region, input fuel and journey driven:</b><br>
+            </div>
+
+                <form id="myForm" method="post" action="calculate2/" role="form" class="form-horizontal"  >
+                {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="radio" name="region" value="US"  checked="checked"> US
+                            <input type="radio" name="region" value="European"> European
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group col-sm-3" >
+                            <input pattern="\d+(\.\d{0,})?" id="in1" type="text" name="fuel" class="form-control" placeholder="Fuel" required/>
+                            <span id="s1" class="input-group-addon">gallon</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group col-sm-3" >
+                           <input pattern="\d+(\.\d{0,})?" id="in2" type="text" name="journey_driven" class="form-control" placeholder="Journey driven" required/>
+                           <span id="s2" class="input-group-addon">miles </span>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Calculate"/>
+                    <input type="reset" value="Clear"/>
+                </form>
+            </div>
+            <div align="center">
+                <img src={% static "calculate_f/img/3.png" %}  width="100%" alt="Road_and_Grass"/>
+            </div>
+		</div>
+
+		<!--FOOTER -->
+		<footer class="navbar-fixed-bottom" style="padding-top:7px;" >
+			<p align="center" style="color:#969696">© From Alina 2015</p>
+		</footer>
+
+    <script type="text/javascript" src="{% static "calculate_f/js/main.js"%}"></script>
+	</body>
+</html>

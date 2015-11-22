@@ -43,11 +43,11 @@ List of tasks:
 
 You're done ;)
 -------------------------------------
-Implementation of "Fuel Consumption"
+#Implementation of "Fuel Consumption"
 
-About structure:
+##About structure:
 
--main
+###-main
     --java
         ---ru\itqdevelopment\exercise 
             ---- Calc : this class represents "Model" and used for calculation of average consumption relying on "liters" and "kilometers" 
@@ -74,9 +74,8 @@ About structure:
             ----views
                 -----components : here is located our .jsp page-components to import into the work page(s)
                 -----index.jsp : "View" and main page of the project (where you can check the functionality)
-            ----web.xml: used for filtering all of requests which comes to Spring (web) container (through “DispatcherServlet”, and controlled by him)
-            
--test
+            ----web.xml: used for filtering all of requests which comes to Spring (web) container (through “DispatcherServlet”, and controlled by him)           
+###-test
     --java
         ---...(description omitted for brevity)
     --resources

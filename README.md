@@ -42,3 +42,42 @@ List of tasks:
 7. Send a pull request to itq-development/internship-excercise2. This point is not mandatory, however it might speed up the verification process :)
 
 You're done ;)
+-------------------------------------
+Implementation of "Fuel Consumption"
+
+About structure:
+
+-main
+    --java
+        ---ru\itqdevelopment\exercise 
+            ---- Calc : this class represents "Model" and used for calculation of average consumption relying on "liters" and "kilometers" 
+            ---- FuelController : this class represents "Controller" which sends the data on "Model" and "View"  for their purposes
+    --resources
+        ---log4j.xml : used for logging of each action in application
+    --webapp
+        ---resources
+            ----css
+                ------bootstrap.min.css
+                ------bootstrap-theme.min.css
+                ------custom-style.css
+                ------normalize.min.css
+            ----fonts
+                ------...(description omitted for brevity)
+            ----js
+                -----bootstrap.min.js
+                -----custom.js
+                -----jquery-2.1.4.min.js
+        ---WEB-INF
+            ----spring
+                -----appServlet\servlet-context.xml : special context-file for “DispatcherServlet” 
+                -----root-context.xml: defines shared resources visible to all other web components
+            ----views
+                -----components : here is located our .jsp page-components to import into the work page(s)
+                -----index.jsp : "View" and main page of the project (where you can check the functionality)
+            ----web.xml: used for filtering all of requests which comes to Spring (web) container (through “DispatcherServlet”, and controlled by him)
+            
+-test
+    --java
+        ---...(description omitted for brevity)
+    --resources
+        ---...(description omitted for brevity)

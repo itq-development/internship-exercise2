@@ -1,29 +1,83 @@
 var express = require('express');
 var router = express.Router();
 
-var unitsToCountAverage = 100;
-var unitType = 'Kilometers'
+var averageCountRange = 100;
+var unitType = 'Kilometers';
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     res.render('index', {
         unitType: unitType,
-        unitsNumber: unitsToCountAverage
+        averageCountRange: averageCountRange
     });
 });
 
-function fuelConsumptionPerUnit(fuel, unitsNumber) {
-    return (fuel / unitsNumber);
+function getValuableMin(precision) {
+    var result = 1;
+    for (var i = 0; i < precision; i++) {
+        result /= 10;
+    }
+    return result;
+}
+
+function roundResultTo2DecimalsIfPossible(result) {
+    var roundingPrecision = 2;
+    if (result < getValuableMin(roundingPrecision)) {
+        return result.toFixed(20).match(/^-?\d*\.?0*\d{0,2}/)[0];
+    } else {
+        return result.toFixed(roundingPrecision);
+    }
+}
+
+function getLastChar(string) {
+    return string.charAt(string.length - 1);
+}
+
+function trimEndZeros(string) {
+    while (getLastChar(string) == '0') {
+        string = string.slice(0, -1);
+        if (getLastChar(string) == '.') {
+            string = string.slice(0, -1);
+            return string;
+        }
+    }
+    return string;
+}
+
+function trimEndZerosIfPossible(string) {
+    if (getLastChar(string) == '0') {
+        string = trimEndZeros(string);
+    }
+    return string;
+}
+
+function convertToHumanReadableString(number) {
+    var result = number.toString();
+    if (result.indexOf(".")) {
+        return trimEndZerosIfPossible(result);
+    } else {
+        return result;
+    }
+}
+
+function calculateAveragePerUnits(fuel, journeyLength, averageCountRange) {
+    var result = fuel / journeyLength * averageCountRange;
+    return roundResultTo2DecimalsIfPossible(result);
+}
+
+function presentFuelAverageConsumption(fuel, journeyLength, averageCountRange) {
+    var roundedResult = calculateAveragePerUnits(fuel, journeyLength, averageCountRange);
+    return convertToHumanReadableString(roundedResult);
 }
 
 router.post('/', function (req, res) {
     var fuel = req.body['fuel-value'];
-    var length = req.body['journey-length'];
+    var journeyLength = req.body['journey-length'];
 
     res.render('average-consumption', {
         unitType: unitType,
-        unitsNumber: unitsToCountAverage,
-        consumptionAverage: fuelConsumptionPerUnit(fuel, length) * unitsToCountAverage
+        averageCountRange: averageCountRange,
+        consumptionAverage: presentFuelAverageConsumption(fuel, journeyLength, averageCountRange)
     });
 });
 

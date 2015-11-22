@@ -1,0 +1,26 @@
+.container {
+    width: 800px;
+}
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn:active:focus {
+    outline: 0;
+}
+strong{
+    font-size: 16px;
+}
+.col-xs-6 {
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    min-height: 48px;
+    vertical-align: middle;
+}
+input {
+    border: none;
+    outline: none;
+}
+#count {
+    margin-top: 15px;
+    padding: 10px;
+}

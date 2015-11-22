@@ -1,0 +1,49 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <title>Alina Izvozchikova</title>
+        <link rel="stylesheet" href="{% static "calculate_f/css/main.css"%}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </head>
+
+	<body>
+
+		<header class="navbar" style="margin-top:1px;" >
+			<div align="center">
+                <img src="http://x-lines.ru/letters/i/cyrillicoutline/0378/48d100/28/0/mfzzkeddcfznya5bpttzk5dbqt11yamqrbozc3m1cfuskeddcf3ny3uicisnya5xp33zk5moqtws65o.png" border="0" />
+                <img src={% static "calculate_f/img/avtocek.png" %}  width="150" alt="Road_and_Grass" style="position: absolute;"/>
+            </div>
+        </header>
+
+        <!--container -->
+		<div class="jumbotron" style="margin-top:-17px;">
+            <div class="container" align="center" style="color:#787878">
+                <div id="result">
+                    {% ifequal region 'European' %}
+                        <b>{{result}} liters / 100 km</b><br>
+                    {% else %}
+                        <b>{{result}} miles per gallon</b><br>
+                    {% endifequal %}
+                </div>
+                <div style="margin-top:40px;">
+                    <a href="../">again calculate</a>
+                </div>
+            </div>
+            <div align="center" style="margin-top:0px;">
+                <img src={% static "calculate_f/img/picture_3-92422.png" %}  width="100%" alt="Road_and_Grass"/>
+            </div>
+		</div>
+
+		<!--FOOTER -->
+		<footer class="navbar-fixed-bottom" style="padding-top:7px;" >
+			<p align="center" style="color:#969696">© From Alina 2015</p>
+		</footer>
+	</body>
+</html>

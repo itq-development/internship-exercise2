@@ -1,0 +1,20 @@
+<head>
+  <title>car_fuel_consumption</title>
+</head>
+
+<body>
+  <h1>European version of car fuel consumption</h1>
+
+  {{> fuel}}
+</body>
+
+<template name="fuel">
+  <form>
+    <input id="fuel" type="text" placeholder="fuel (in liters)">
+    <input id="journey" type="text" placeholder="journey driven (in kilometers)">
+    <button>Calculate</button>
+  </form>
+  {{#if anAverage}}
+    <p>An average fuel consumption is {{anAverage}} / 100</p>
+  {{/if}}
+</template>

@@ -10,27 +10,27 @@
     <p class="lead"></p>
     <div class="row">
         <div class="col col-sm-6 col-sm-offset-3">
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "calculate-form" }))
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new {id = "calculate-form"}))
             {
-                @Html.ValidationSummary("", new { @class = "text-danger" })
+                @Html.ValidationSummary("", new {@class = "text-danger"})
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Fuel, new { @class = "form-control", id = "fuel-field" })
-                    @Html.LabelFor(m => m.Fuel, new { @for = "fuel-field" })
-                    @Html.ValidationMessageFor(m => m.Fuel, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Fuel, new {@class = "form-control", id = "fuel-field"})
+                    @Html.LabelFor(m => m.Fuel, new {@for = "fuel-field"})
+                    @Html.ValidationMessageFor(m => m.Fuel, "", new {@class = "text-danger"})
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.JourneyDriven, new { @class = "form-control", id = "journey-driven-field" })
-                    @Html.LabelFor(m => m.JourneyDriven, new { @for = "journey-driven-field" })
-                    @Html.ValidationMessageFor(m => m.JourneyDriven, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.JourneyDriven, new {@class = "form-control", id = "journey-driven-field"})
+                    @Html.LabelFor(m => m.JourneyDriven, new {@for = "journey-driven-field"})
+                    @Html.ValidationMessageFor(m => m.JourneyDriven, "", new {@class = "text-danger"})
                 </div>
                 <p class="lead">
-                    <input type="submit" class="btn btn-lg btn-default" value="Calculate" />
+                    <input type="submit" class="btn btn-lg btn-default" value="Calculate"/>
                 </p>
             }
         </div>
     </div>
-    <div id="result">
-    </div>
+    <div class="loader">Loading...</div>
+    <div id="result"></div>
 </div>
 
 @section scripts {
@@ -45,7 +45,17 @@
                     success: function(data) {
                         $('#result').html(data);
                     },
-                    cache: false
+                    cache: false,
+                    beforeSend: function () {
+                        $('.loader').css({
+                            'display': 'block'
+                        });
+                    },
+                    complete: function () {
+                        $('.loader').css({
+                            'display': 'none'
+                        });
+                    }
                 });
             });
         });

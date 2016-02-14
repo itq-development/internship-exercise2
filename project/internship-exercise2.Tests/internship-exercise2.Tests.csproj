@@ -92,7 +92,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\internship-exercise2.csproj">
+    <ProjectReference Include="..\internship-exercise2\internship-exercise2.csproj">
       <Project>{CEB0804A-1F2E-4AC0-B14A-02AF7D1CE84B}</Project>
       <Name>internship-exercise2</Name>
     </ProjectReference>

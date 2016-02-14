@@ -34,3 +34,8 @@ D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debu
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\obj\Debug\internship-exercise2.Tests.csprojResolveAssemblyReference.cache
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\obj\Debug\internship-exercise2.Tests.dll
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\obj\Debug\internship-exercise2.Tests.pdb
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debug\Ninject.Web.Common.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debug\Ninject.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debug\WebActivatorEx.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debug\Ninject.Web.Common.xml
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2.Tests\bin\Debug\Ninject.xml

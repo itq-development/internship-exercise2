@@ -1,7 +1,53 @@
-﻿@{
+﻿@model internship_exercise2.Models.Car
+@{
     ViewBag.Title = "Home Page";
 }
 
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
 <div class="inner cover">
-    
+    <h1 class="cover-heading">Calculate an average car fuel consumption.</h1>
+    <p class="lead"></p>
+    <div class="row">
+        <div class="col col-sm-6 col-sm-offset-3">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "calculate-form" }))
+            {
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Fuel, new { @class = "form-control", id = "fuel-field" })
+                    @Html.LabelFor(m => m.Fuel, new { @for = "fuel-field" })
+                    @Html.ValidationMessageFor(m => m.Fuel, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.JourneyDriven, new { @class = "form-control", id = "journey-driven-field" })
+                    @Html.LabelFor(m => m.JourneyDriven, new { @for = "journey-driven-field" })
+                    @Html.ValidationMessageFor(m => m.JourneyDriven, "", new { @class = "text-danger" })
+                </div>
+                <p class="lead">
+                    <input type="submit" class="btn btn-lg btn-default" value="Calculate" />
+                </p>
+            }
+        </div>
+    </div>
+    <div id="result">
+    </div>
 </div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function() {
+            $('#calculate-form').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: this.action,
+                    type: this.method,
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        $('#result').html(data);
+                    },
+                    cache: false
+                });
+            });
+        });
+    </script>
+}

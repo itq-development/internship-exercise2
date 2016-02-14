@@ -63,3 +63,10 @@ D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\ru\Microso
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\obj\Debug\internship-exercise2.csprojResolveAssemblyReference.cache
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\obj\Debug\internship-exercise2.dll
 D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\obj\Debug\internship-exercise2.pdb
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.Web.Common.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.Web.Mvc.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\WebActivatorEx.dll
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.xml
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.Web.Common.xml
+D:\Exercises\Exercise 2\internship-exercise2\internship-exercise2\bin\Ninject.Web.Mvc.xml

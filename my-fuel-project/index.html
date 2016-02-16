@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>Fuel project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script>
+        var app = angular.module('fuelApp', []);
+
+        app.controller('convertController', function($scope) {
+
+            $scope.info = {
+                initialFuel: '',
+                distance: '',
+                consumption: ''
+            }
+
+            $scope.calculate = function() {
+                $scope.info.consumption = ($scope.info.initialFuel * 100) / $scope.info.distance;
+            }
+        })
+    </script>
+    <style>
+        input {
+            margin: 3px;
+        }
+        #container {
+            margin: 0 auto;
+            padding: 3px;
+            text-align: right;
+            border: 1px solid black;
+            width: 300px;
+        }
+    </style>
+</head>
+<body ng-app="fuelApp">
+    <div id="container">
+        <form ng-controller="convertController">
+            Initial fuel <input type="number" ng-model="info.initialFuel"/></br>
+            Driving distance <input type="number" ng-model="info.distance"/></br>
+            <input type="submit" value="Calculate" ng-click="calculate()"/></br>
+            Liters per 100km<input type="number" ng-model="info.consumption"/>
+        </form>
+    </div>
+</body>
+</html>

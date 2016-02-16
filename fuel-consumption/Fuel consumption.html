@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Car fuel consumption</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<form role="form">
+				<div class="form-group">
+					<label for="fuel">Enter amount of fuel consumption</label>
+					<input type="text" placeholder="Amount of fuel" id="fuel" autofocus>
+				</div>
+				<div class="form-group">
+					<label for="kilometers">Enter amount of driven kilometers</label>
+					<input type="text" placeholder="Amount of km" id="km">
+				</div>
+				<button type="submit" class="btn btn-primary" id="calculate">Calculate</button>
+			</form>
+			<div class="calculation"></div>
+		</div>
+		<script type="text/javascript">
+			$('#calculate').on('click', function(event) {  //function to add an average amount of fuel consumption
+				event.preventDefault();
+				var fuel = $('#fuel').val(),
+						km = $('#km').val(),
+						average = (fuel / km) * 100; //resulting amount
+				$("#km").val('');  //clearing
+				$('#fuel').val(''); //our inputs
+				$('.calculation p').remove(); //removing our result on page
+				if (isNaN(average) || !fuel || !km) { //check for wrong input
+					alert('Wrong input! Please try again');
+				} else {
+					$('<p>An average fuel consumption ' + average.toFixed(4) * 1 + 'l / 100 km</p>').appendTo($('.calculation'));
+				}
+			});  //adding result to our page
+		</script>
+	</body>
+</html>

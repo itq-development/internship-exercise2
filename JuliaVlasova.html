@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta HTTP-EQUIV=”Content-Type” content="text/html" charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="angular_css.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+
+</head>
+<body>
+<div data-ng-app="" data-ng-init="fuel=200; journey=400" class="fuel_cons">
+
+  <form>
+    Fuel (in liters): <br> <input type="text" ng-model="fuel" name="fuel" id="fuel"><br>
+	Journey driven (in kilometers): <br><input type="text" ng-model="journey" name="journey" id="journey">
+  </form>
+  
+ <h1> An average fuel consumption is <br>{{fuel * 100 / journey}} <br>l/100km</h1>
+
+</div>
+
+</body>
+</html>

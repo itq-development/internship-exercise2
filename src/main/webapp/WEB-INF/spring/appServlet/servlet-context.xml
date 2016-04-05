@@ -16,6 +16,7 @@
 	</beans:bean>
 
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!--org.apache.commons.dbcp.BasicDataSource-->
 		<beans:property name="driverClassName" value="org.postgresql.Driver"/>
 		<beans:property name="url" value="jdbc:postgresql://localhost:5432/info_db"/>
 		<beans:property name="username" value="byaxe"/>
@@ -24,9 +25,9 @@
 
 	<beans:bean depends-on="dataSource" id="entityManagerFactory"
 				class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+				p:persistenceUnitName="APU"
 				p:dataSource-ref="dataSource"
-				p:packagesToScan="by.novacom.exercise.entities"
-				p:persistenceUnitName="APPLICATION_PERSISTENCE_UNIT">
+				p:packagesToScan="by.novacom.exercise.entities">
 
 		<beans:property name="jpaVendorAdapter">
 			<beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
@@ -43,10 +44,13 @@
 	<beans:bean depends-on="entityManagerFactory" name="transactionManager"
 				class="org.springframework.orm.jpa.JpaTransactionManager">
 		<beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
+		<beans:property name="jpaDialect" ref="jpaDialect"/>
 	</beans:bean>
+
+	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
 
 	<context:component-scan base-package="by.novacom.exercise"/>
 
-	<tx:annotation-driven />
+	<tx:annotation-driven/>
 
 </beans:beans>

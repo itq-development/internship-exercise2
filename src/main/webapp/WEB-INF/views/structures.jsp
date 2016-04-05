@@ -21,20 +21,20 @@
     </div>
 </div>
 <hr>
-<div class="container">
+<div class="container min-height">
     <div class="row">
-        <div class="col-md-6 center">
-            <form:form method="get" commandName="users" action="/structures">
-                <button type="submit" class="btn btn-default">Find!</button>
-            </form:form>
-        </div>
-        <div class="col-md-6 center">
-            <div class="col-md-offset-3 col-md-6 result-block">
-                <p></p>
-
-                <p class="result-value"></p>
-
-                <p></p>
+        <div class="col-md-10 col-md-offset-1 center">
+            <div class="row">
+                <c:forEach items="${structuresList}" var="structures">
+                    <div class="col-md-3">
+                        <ul>
+                            <li>ID = ${structures.id}</li>
+                            <li>TITLE = ${structures.title}</li>
+                            <li>SLOGAN = ${structures.slogan}</li>
+                        </ul>
+                        <hr>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>

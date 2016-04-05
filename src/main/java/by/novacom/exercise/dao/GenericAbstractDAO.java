@@ -8,6 +8,6 @@ import javax.persistence.PersistenceContext;
  */
 public abstract class GenericAbstractDAO {
 
-    @PersistenceContext(unitName = "APPLICATION_PERSISTENCE_UNIT")
+    @PersistenceContext(unitName = "APU")
     protected EntityManager entityManager;
 }

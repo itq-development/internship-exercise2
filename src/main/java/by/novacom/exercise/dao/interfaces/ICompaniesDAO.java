@@ -1,6 +1,7 @@
 package by.novacom.exercise.dao.interfaces;
 
 import by.novacom.exercise.entities.CompaniesEntity;
+import by.novacom.exercise.entities.EmployeesEntity;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface ICompaniesDAO {
     List<CompaniesEntity> getCompaniesList();
 
     CompaniesEntity getCompanyById(final int id);
+
+    List<EmployeesEntity> getEmployeesListById(final int id);
 }

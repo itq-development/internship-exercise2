@@ -18,14 +18,8 @@ import java.util.List;
 public class EmployeesDAOImpl extends GenericAbstractDAO implements IEmployeesDAO {
 
     @Override
-    public List<EmployeesEntity> getEmployeesByCompany(final CompaniesEntity company) {
-        return null/*entityManager.createQuery("SELECT e FROM EmployeesEntity WHERE ",
-            EmployeesEntity.class).getResultList()*/;
-    }
-
-    @Override
     public EmployeesEntity getEmployeeById(final int id) {
-        return entityManager.createQuery("SELECT e FROM EmployeesEntity WHERE id = " + id,
+        return entityManager.createQuery("SELECT e FROM EmployeesEntity e WHERE id = " + id,
                 EmployeesEntity.class).getSingleResult();
     }
 }

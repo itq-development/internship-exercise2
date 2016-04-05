@@ -2,6 +2,7 @@ package by.novacom.exercise.service.implementation;
 
 import by.novacom.exercise.dao.implementation.CompaniesDAOImpl;
 import by.novacom.exercise.entities.CompaniesEntity;
+import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.interfaces.ICompaniesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,10 @@ public class CompaniesServiceImpl implements ICompaniesService {
     @Override
     public CompaniesEntity getCompanyById(final int id) {
         return this.companiesDAO.getCompanyById(id);
+    }
+
+    @Override
+    public List<EmployeesEntity> getEmployeesListById(final int id) {
+        return this.companiesDAO.getEmployeesListById(id);
     }
 }

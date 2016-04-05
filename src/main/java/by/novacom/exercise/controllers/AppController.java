@@ -1,7 +1,6 @@
 package by.novacom.exercise.controllers;
 
 import by.novacom.exercise.entities.CompaniesEntity;
-import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.implementation.CompaniesServiceImpl;
 import by.novacom.exercise.service.implementation.EmployeesServiceImpl;
 import org.slf4j.Logger;
@@ -9,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,11 +32,11 @@ public class AppController {
         return new ModelAndView("index");
     }
 
-    @RequestMapping(value = "/employees", method = RequestMethod.GET)
-    public String employeesList(Model model, @ModelAttribute("company") CompaniesEntity company) {
+    @RequestMapping(value = "/employees/{idComp}", method = RequestMethod.GET)
+    public String employeesList(Model model, @PathVariable("idComp") Integer id) {
 
-        model.addAttribute("employees", new EmployeesEntity());
-        model.addAttribute("employeesList", this.employeesService.getEmployeesByCompany(company));
+        model.addAttribute("employees", new CompaniesEntity());
+        model.addAttribute("employeesList", this.companiesService.getEmployeesListById(id));
 
         return "employees";
     }

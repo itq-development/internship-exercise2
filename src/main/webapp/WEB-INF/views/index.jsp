@@ -20,16 +20,16 @@
     </div>
 </div>
 <hr>
-<div class="container">
+<div class="container min-height">
     <div class="row">
         <div class="col-md-6">
-            <a href="/structures">
+            <a href="structures">
                 <div class="btn btn-lg btn-default">Structures</div>
             </a>
         </div>
         <div class="col-md-6">
-            <a href="/users">
-                <div class="btn btn-lg btn-default">Users</div>
+            <a href="employees">
+                <div class="btn btn-lg btn-default">Employees</div>
             </a>
         </div>
     </div>

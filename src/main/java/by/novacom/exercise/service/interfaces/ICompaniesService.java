@@ -1,6 +1,7 @@
 package by.novacom.exercise.service.interfaces;
 
 import by.novacom.exercise.entities.CompaniesEntity;
+import by.novacom.exercise.entities.EmployeesEntity;
 
 import java.util.List;
 
@@ -12,5 +13,7 @@ public interface ICompaniesService {
     List<CompaniesEntity> getCompaniesList();
 
     CompaniesEntity getCompanyById(final int id);
+
+    List<EmployeesEntity> getEmployeesListById(final int id);
 
 }

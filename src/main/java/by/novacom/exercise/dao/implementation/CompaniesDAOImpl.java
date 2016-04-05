@@ -3,6 +3,7 @@ package by.novacom.exercise.dao.implementation;
 import by.novacom.exercise.dao.GenericAbstractDAO;
 import by.novacom.exercise.dao.interfaces.ICompaniesDAO;
 import by.novacom.exercise.entities.CompaniesEntity;
+import by.novacom.exercise.entities.EmployeesEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,5 +28,11 @@ public class CompaniesDAOImpl extends GenericAbstractDAO implements ICompaniesDA
     public CompaniesEntity getCompanyById(final int id) {
         return entityManager.createQuery("SELECT c FROM CompaniesEntity c WHERE id = " + id,
                 CompaniesEntity.class).getSingleResult();
+    }
+
+    public List<EmployeesEntity> getEmployeesListById(final int id) {
+        return entityManager.createQuery("SELECT c FROM EmployeesEntity c JOIN" +
+                " c.companies e WHERE e.id = " + id, EmployeesEntity.class)
+                .getResultList();
     }
 }

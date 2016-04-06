@@ -8,6 +8,8 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:annotation-config/>
+
 	<resources mapping="/resources/**" location="/resources/"/>
 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -45,6 +47,7 @@
 				class="org.springframework.orm.jpa.JpaTransactionManager">
 		<beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
 		<beans:property name="jpaDialect" ref="jpaDialect"/>
+		<beans:property name="dataSource" ref="dataSource"/>
 	</beans:bean>
 
 	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>

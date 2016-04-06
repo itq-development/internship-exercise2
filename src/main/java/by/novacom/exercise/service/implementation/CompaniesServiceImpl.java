@@ -1,6 +1,7 @@
 package by.novacom.exercise.service.implementation;
 
 import by.novacom.exercise.dao.implementation.CompaniesDAOImpl;
+import by.novacom.exercise.dao.interfaces.ICompaniesDAO;
 import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.interfaces.ICompaniesService;
@@ -16,10 +17,11 @@ import java.util.List;
  */
 
 @Service
+@Transactional(readOnly = true)
 public class CompaniesServiceImpl implements ICompaniesService {
 
     @Autowired
-    CompaniesDAOImpl companiesDAO;
+    private ICompaniesDAO companiesDAO;
 
     @Override
     public List<CompaniesEntity> getCompaniesList() {
@@ -32,20 +34,18 @@ public class CompaniesServiceImpl implements ICompaniesService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public List<EmployeesEntity> getEmployeesListById(final int id) {
         return this.companiesDAO.getEmployeesListById(id);
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
-
+    @Transactional
     public CompaniesEntity addCompany(CompaniesEntity company) {
         return this.companiesDAO.addCompany(company);
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+    @Transactional
     public CompaniesEntity removeCompany(final int id) {
         return this.companiesDAO.removeCompany(id);
     }

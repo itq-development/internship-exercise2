@@ -4,6 +4,8 @@ import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.implementation.CompaniesServiceImpl;
 import by.novacom.exercise.service.implementation.EmployeesServiceImpl;
+import by.novacom.exercise.service.interfaces.ICompaniesService;
+import by.novacom.exercise.service.interfaces.IEmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +20,10 @@ import java.util.Optional;
 public class OperationsController {
 
     @Autowired
-    CompaniesServiceImpl companiesService;
+    private ICompaniesService companiesService;
 
     @Autowired
-    EmployeesServiceImpl employeesService;
+    private IEmployeesService employeesService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String loadPage(@ModelAttribute("employee") EmployeesEntity employee) {

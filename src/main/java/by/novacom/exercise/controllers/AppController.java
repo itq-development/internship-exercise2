@@ -3,6 +3,8 @@ package by.novacom.exercise.controllers;
 import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.service.implementation.CompaniesServiceImpl;
 import by.novacom.exercise.service.implementation.EmployeesServiceImpl;
+import by.novacom.exercise.service.interfaces.ICompaniesService;
+import by.novacom.exercise.service.interfaces.IEmployeesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,7 @@ public class AppController {
     private static final Logger logger = LoggerFactory.getLogger(AppController.class);
 
     @Autowired
-    CompaniesServiceImpl companiesService;
-
-    @Autowired
-    EmployeesServiceImpl employeesService;
+    private ICompaniesService companiesService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView main() {

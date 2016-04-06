@@ -11,8 +11,6 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!--<context:annotation-config/>-->
-
 	<mvc:annotation-driven/>
 
 	<context:component-scan base-package="by.novacom.exercise"/>
@@ -31,7 +29,7 @@
 		<beans:property name="driverClassName" value="org.postgresql.Driver"/>
 		<beans:property name="url" value="jdbc:postgresql://localhost:5432/info_db"/>
 		<beans:property name="username" value="byaxe"/>
-		<beans:property name="password" value="byaxe"/>
+		<beans:property name="password" value=""/>
 	</beans:bean>
 
 	<beans:bean depends-on="dataSource" id="entityManagerFactory"
@@ -56,7 +54,7 @@
 				class="org.springframework.orm.jpa.JpaTransactionManager">
 		<beans:property name="entityManagerFactory" ref="entityManagerFactory"/>
 		<beans:property name="jpaDialect" ref="jpaDialect"/>
-		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="rollbackOnCommitFailure" value="true"/>
 	</beans:bean>
 
 	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>

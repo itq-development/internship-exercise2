@@ -2,13 +2,14 @@ package by.novacom.exercise.controllers;
 
 import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.entities.EmployeesEntity;
-import by.novacom.exercise.service.implementation.CompaniesServiceImpl;
-import by.novacom.exercise.service.implementation.EmployeesServiceImpl;
 import by.novacom.exercise.service.interfaces.ICompaniesService;
 import by.novacom.exercise.service.interfaces.IEmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -16,7 +17,7 @@ import java.util.Optional;
  * Created by byaxe on 4/6/16.
  */
 @Controller
-@RequestMapping(value = "/operations")
+@RequestMapping(value = "/operations", method = RequestMethod.GET)
 public class OperationsController {
 
     @Autowired
@@ -25,14 +26,17 @@ public class OperationsController {
     @Autowired
     private IEmployeesService employeesService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping
     public String loadPage(@ModelAttribute("employee") EmployeesEntity employee) {
         return "operations";
     }
 
-    @RequestMapping(value = "/add/employee", method = RequestMethod.GET)
-    public String addEmployee(@ModelAttribute("employee") EmployeesEntity employee) {
-        this.employeesService.addEmployee(employee);
+    @RequestMapping(params = {"employee"}, value = "/add/employee/")
+    public String addEmployee(@RequestParam("employee") EmployeesEntity employee) {
+        try {
+            this.employeesService.addEmployee(employee);
+        }catch (Exception ignored){
+        }
         return "redirect:/operations";
     }
 
@@ -45,7 +49,7 @@ public class OperationsController {
         return "redirect:/operations";
     }
 
-    @RequestMapping(value = "/add/company", method = RequestMethod.POST)
+    @RequestMapping(value = "/add/company")
     public String addCompany(@ModelAttribute("company") CompaniesEntity company) {
         this.companiesService.addCompany(company);
         return "redirect:/operations";

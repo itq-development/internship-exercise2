@@ -15,6 +15,7 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
     private String title;
     private String slogan;
     private Set<EmployeesEntity> employees = new HashSet<>();
+    private Set<CompaniesEntity> companies = new HashSet<>();
 
     @Column(name = "title")
     public String getTitle() {
@@ -34,7 +35,7 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
         this.slogan = slogan;
     }
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinTable(name = "companies_employees", joinColumns = {
             @JoinColumn(name = "company_id")
     }, inverseJoinColumns = {
@@ -48,33 +49,12 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
         this.employees = employees;
     }
 
-/*    @Override
-    public String toString() {
-        return "CompaniesEntity{" +
-                "title='" + title + '\'' +
-                ", slogan='" + slogan + '\'' +
-                ", employees=" + employees +
-                '}';
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "companies", cascade = CascadeType.REMOVE)
+    public Set<CompaniesEntity> getCompanies() {
+        return companies;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CompaniesEntity)) return false;
-
-        CompaniesEntity that = (CompaniesEntity) o;
-
-        if (!getTitle().equals(that.getTitle())) return false;
-        if (getSlogan() != null ? !getSlogan().equals(that.getSlogan()) : that.getSlogan() != null) return false;
-        return getEmployees().equals(that.getEmployees());
-
+    public void setCompanies(Set<CompaniesEntity> companies) {
+        this.companies = companies;
     }
-
-    @Override
-    public int hashCode() {
-        int result = getTitle().hashCode();
-        result = 31 * result + (getSlogan() != null ? getSlogan().hashCode() : 0);
-        result = 31 * result + getEmployees().hashCode();
-        return result;
-    }*/
 }

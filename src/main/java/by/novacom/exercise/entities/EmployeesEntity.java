@@ -1,6 +1,7 @@
 package by.novacom.exercise.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "employees")
-public class EmployeesEntity extends AbstractEntity {
+public class EmployeesEntity extends AbstractEntity implements Serializable {
 
     private String name;
     private String position;
@@ -63,39 +64,39 @@ public class EmployeesEntity extends AbstractEntity {
         this.companies = companies;
     }
 
-//    @Override
-//    public String toString() {
-//        return "EmployeesEntity{" +
-//                "name='" + name + '\'' +
-//                ", position='" + position + '\'' +
-//                ", sex='" + sex + '\'' +
-//                ", age=" + age +
-//                ", companies=" + companies +
-//                '}';
-//    }
+/*    @Override
+    public String toString() {
+        return "EmployeesEntity{" +
+                "name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", companies=" + companies +
+                '}';
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof EmployeesEntity)) return false;
-//
-//        EmployeesEntity that = (EmployeesEntity) o;
-//
-//        if (getAge() != that.getAge()) return false;
-//        if (!getName().equals(that.getName())) return false;
-//        if (!getPosition().equals(that.getPosition())) return false;
-//        if (!getSex().equals(that.getSex())) return false;
-//        return getCompanies().equals(that.getCompanies());
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = getName().hashCode();
-//        result = 31 * result + getPosition().hashCode();
-//        result = 31 * result + getSex().hashCode();
-//        result = 31 * result + getAge();
-//        result = 31 * result + getCompanies().hashCode();
-//        return result;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EmployeesEntity)) return false;
+
+        EmployeesEntity that = (EmployeesEntity) o;
+
+        if (getAge() != that.getAge()) return false;
+        if (!getName().equals(that.getName())) return false;
+        if (!getPosition().equals(that.getPosition())) return false;
+        if (!getSex().equals(that.getSex())) return false;
+        return getCompanies().equals(that.getCompanies());
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getName().hashCode();
+        result = 31 * result + getPosition().hashCode();
+        result = 31 * result + getSex().hashCode();
+        result = 31 * result + getAge();
+        result = 31 * result + getCompanies().hashCode();
+        return result;
+    }*/
 }

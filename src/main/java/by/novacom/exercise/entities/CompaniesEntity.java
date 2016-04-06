@@ -1,6 +1,7 @@
 package by.novacom.exercise.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "companies")
-public class CompaniesEntity extends AbstractEntity {
+public class CompaniesEntity extends AbstractEntity implements Serializable {
 
     private String title;
     private String slogan;
@@ -47,33 +48,33 @@ public class CompaniesEntity extends AbstractEntity {
         this.employees = employees;
     }
 
-//    @Override
-//    public String toString() {
-//        return "CompaniesEntity{" +
-//                "title='" + title + '\'' +
-//                ", slogan='" + slogan + '\'' +
-//                ", employees=" + employees +
-//                '}';
-//    }
+/*    @Override
+    public String toString() {
+        return "CompaniesEntity{" +
+                "title='" + title + '\'' +
+                ", slogan='" + slogan + '\'' +
+                ", employees=" + employees +
+                '}';
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (!(o instanceof CompaniesEntity)) return false;
-//
-//        CompaniesEntity that = (CompaniesEntity) o;
-//
-//        if (!getTitle().equals(that.getTitle())) return false;
-//        if (getSlogan() != null ? !getSlogan().equals(that.getSlogan()) : that.getSlogan() != null) return false;
-//        return getEmployees().equals(that.getEmployees());
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = getTitle().hashCode();
-//        result = 31 * result + (getSlogan() != null ? getSlogan().hashCode() : 0);
-//        result = 31 * result + getEmployees().hashCode();
-//        return result;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CompaniesEntity)) return false;
+
+        CompaniesEntity that = (CompaniesEntity) o;
+
+        if (!getTitle().equals(that.getTitle())) return false;
+        if (getSlogan() != null ? !getSlogan().equals(that.getSlogan()) : that.getSlogan() != null) return false;
+        return getEmployees().equals(that.getEmployees());
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getTitle().hashCode();
+        result = 31 * result + (getSlogan() != null ? getSlogan().hashCode() : 0);
+        result = 31 * result + getEmployees().hashCode();
+        return result;
+    }*/
 }

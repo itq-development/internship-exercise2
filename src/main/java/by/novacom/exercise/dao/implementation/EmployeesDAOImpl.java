@@ -12,6 +12,7 @@ import java.util.Optional;
  * Created by byaxe on 4/5/16.
  */
 @Repository
+@Transactional(readOnly = true)
 public class EmployeesDAOImpl extends GenericAbstractDAO implements IEmployeesDAO {
 
     @Override

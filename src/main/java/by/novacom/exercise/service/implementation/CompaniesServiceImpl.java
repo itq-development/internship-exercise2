@@ -16,7 +16,6 @@ import java.util.List;
  */
 
 @Service
-@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class CompaniesServiceImpl implements ICompaniesService {
 
     @Autowired
@@ -33,16 +32,20 @@ public class CompaniesServiceImpl implements ICompaniesService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public List<EmployeesEntity> getEmployeesListById(final int id) {
         return this.companiesDAO.getEmployeesListById(id);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+
     public CompaniesEntity addCompany(CompaniesEntity company) {
         return this.companiesDAO.addCompany(company);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public CompaniesEntity removeCompany(final int id) {
         return this.companiesDAO.removeCompany(id);
     }

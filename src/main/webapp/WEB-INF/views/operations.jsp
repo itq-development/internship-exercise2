@@ -69,7 +69,7 @@
                             <form:input path="id" cssClass="form-horizontal"/>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-default">Add</button>
+                    <button type="submit" class="btn btn-default">Remove</button>
                 </form:form>
             </div>
         </div>

@@ -31,7 +31,7 @@
 		<beans:property name="driverClassName" value="org.postgresql.Driver"/>
 		<beans:property name="url" value="jdbc:postgresql://localhost:5432/info_db"/>
 		<beans:property name="username" value="byaxe"/>
-		<beans:property name="password" value=""/>
+		<beans:property name="password" value="byaxe"/>
 	</beans:bean>
 
 	<beans:bean depends-on="dataSource" id="entityManagerFactory"

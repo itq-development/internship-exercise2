@@ -36,4 +36,14 @@ public class CompaniesServiceImpl implements ICompaniesService {
     public List<EmployeesEntity> getEmployeesListById(final int id) {
         return this.companiesDAO.getEmployeesListById(id);
     }
+
+    @Override
+    public CompaniesEntity addCompany(CompaniesEntity company) {
+        return this.companiesDAO.addCompany(company);
+    }
+
+    @Override
+    public CompaniesEntity removeCompany(final int id) {
+        return this.companiesDAO.removeCompany(id);
+    }
 }

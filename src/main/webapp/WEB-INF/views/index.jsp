@@ -22,14 +22,19 @@
 <hr>
 <div class="container min-height">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="structures">
                 <div class="btn btn-lg btn-default">Structures</div>
             </a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="employees">
                 <div class="btn btn-lg btn-default">Employees</div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="operations">
+                <div class="btn btn-lg btn-default">Operations</div>
             </a>
         </div>
     </div>

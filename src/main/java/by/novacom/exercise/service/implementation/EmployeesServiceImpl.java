@@ -22,4 +22,14 @@ public class EmployeesServiceImpl implements IEmployeesService {
     public EmployeesEntity getEmployeeById(int id) {
         return this.employeesDAO.getEmployeeById(id);
     }
+
+    @Override
+    public EmployeesEntity addEmployee(EmployeesEntity employee) {
+        return this.employeesDAO.addEmployee(employee);
+    }
+
+    @Override
+    public EmployeesEntity removeEmployee(final int id) {
+        return this.employeesDAO.removeEmployee(id);
+    }
 }

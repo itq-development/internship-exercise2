@@ -23,19 +23,19 @@
 <hr>
 <div class="container min-height">
     <div class="row">
-        <div class="col-md-3 center">
-<%--            <form:form method="get" commandName="company" action="/employees">
+<%--        <div class="col-md-3 center">
+            <form:form method="GET" commandName="company" action="/employees">
                 <div class="form-group">
-                    <form:label path="company">Enter the structure id</form:label>
-                    <form:input type="number" path="company" class="form-control"/>
+                    <form:label path="id">Enter the structure id </form:label>
+                    <form:input type="number" path="id" class="form-control"/>
                 </div>
                 <button type="submit" class="btn btn-default">Find!</button>
-            </form:form>--%>
-        </div>
+            </form:form>
+        </div>--%>
         <div class="col-md-9 center">
             <div class="row">
                 <c:forEach items="${employeesList}" var="employees">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <ul>
                             <li>ID = ${employees.id}</li>
                             <li>NAME = ${employees.name}</li>

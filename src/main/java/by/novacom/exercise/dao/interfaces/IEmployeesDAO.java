@@ -9,4 +9,7 @@ public interface IEmployeesDAO {
 
     EmployeesEntity getEmployeeById(final int id);
 
+    EmployeesEntity addEmployee(EmployeesEntity employee);
+
+    EmployeesEntity removeEmployee(final int id);
 }

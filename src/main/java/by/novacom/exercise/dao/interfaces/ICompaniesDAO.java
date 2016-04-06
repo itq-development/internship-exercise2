@@ -14,4 +14,8 @@ public interface ICompaniesDAO {
     CompaniesEntity getCompanyById(final int id);
 
     List<EmployeesEntity> getEmployeesListById(final int id);
+
+    CompaniesEntity addCompany(CompaniesEntity company);
+
+    CompaniesEntity removeCompany(final int id);
 }

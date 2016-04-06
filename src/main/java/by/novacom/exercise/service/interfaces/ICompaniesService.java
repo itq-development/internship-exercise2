@@ -16,4 +16,7 @@ public interface ICompaniesService {
 
     List<EmployeesEntity> getEmployeesListById(final int id);
 
+    CompaniesEntity addCompany(CompaniesEntity company);
+
+    CompaniesEntity removeCompany(final int id);
 }

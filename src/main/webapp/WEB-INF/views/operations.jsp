@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-6 center">
             <h2>Employee</h2>
-            <form:form commandName="employee" action="${addEmployee}">
+            <form:form method="POST" commandName="${addEmployee}" action="${addEmployee}">
                 <div class="form-group">
                     <form:label path="name">Enter the name of new employee </form:label>
                     <form:input path="name" cssClass="form-control"/>
@@ -45,11 +45,6 @@
                 <button type="submit" class="btn btn-default">Add</button>
             </form:form>
         </div>
-        <%--        <div class="col-md-6 center">
-                    <div class="row">
-
-                    </div>
-                </div>--%>
     </div>
 </div>
 

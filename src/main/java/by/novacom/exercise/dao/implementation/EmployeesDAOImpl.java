@@ -22,6 +22,7 @@ public class EmployeesDAOImpl extends GenericAbstractDAO implements IEmployeesDA
     }
 
     @Override
+    @Transactional
     public EmployeesEntity addEmployee(EmployeesEntity employee) {
         entityManager.persist(employee);
         return employee;

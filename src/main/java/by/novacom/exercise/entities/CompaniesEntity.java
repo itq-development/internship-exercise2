@@ -15,7 +15,8 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
     private String title;
     private String slogan;
     private Set<EmployeesEntity> employees = new HashSet<>();
-    private Set<CompaniesEntity> companies = new HashSet<>();
+    private CompaniesEntity parent;
+    private Set<CompaniesEntity> children = new HashSet<>();
 
     @Column(name = "title")
     public String getTitle() {
@@ -49,12 +50,21 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
         this.employees = employees;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "companies", cascade = CascadeType.REMOVE)
-    public Set<CompaniesEntity> getCompanies() {
-        return companies;
+    @ManyToOne(targetEntity = CompaniesEntity.class)
+    public CompaniesEntity getParent() {
+        return parent;
     }
 
-    public void setCompanies(Set<CompaniesEntity> companies) {
-        this.companies = companies;
+    public void setParent(CompaniesEntity parent) {
+        this.parent = parent;
+    }
+
+    @OneToMany
+    public Set<CompaniesEntity> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Set<CompaniesEntity> children) {
+        this.children = children;
     }
 }

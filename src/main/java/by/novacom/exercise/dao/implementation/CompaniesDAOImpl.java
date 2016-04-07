@@ -17,6 +17,7 @@ import java.util.Optional;
  */
 
 @Repository
+@Transactional(readOnly = true)
 public class CompaniesDAOImpl extends GenericAbstractDAO implements ICompaniesDAO {
 
     @Override
@@ -39,16 +40,18 @@ public class CompaniesDAOImpl extends GenericAbstractDAO implements ICompaniesDA
     }
 
     @Override
-    public CompaniesEntity addCompany(CompaniesEntity company) {
+    @Transactional
+    public CompaniesEntity addCompany(final CompaniesEntity company) {
         entityManager.persist(company);
         return company;
     }
 
     @Override
+    @Transactional
     public CompaniesEntity removeCompany(final int id) {
         CompaniesEntity removedCompany = entityManager
-                .createQuery("SELECT c FROM CompaniesEntity c WHERE id = " + id,
-                        CompaniesEntity.class).getSingleResult();
+                .createQuery("SELECT c FROM CompaniesEntity c WHERE id = :id",
+                        CompaniesEntity.class).setParameter("id", id).getSingleResult();
 
         entityManager.remove(removedCompany);
 

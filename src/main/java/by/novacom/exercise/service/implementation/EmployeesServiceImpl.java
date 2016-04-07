@@ -1,19 +1,16 @@
 package by.novacom.exercise.service.implementation;
 
-import by.novacom.exercise.dao.implementation.EmployeesDAOImpl;
 import by.novacom.exercise.dao.interfaces.IEmployeesDAO;
 import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.interfaces.IEmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by byaxe on 4/5/16.
  */
 @Service
-@Transactional(readOnly = true)
+//@Transactional(readOnly = true)
 public class EmployeesServiceImpl implements IEmployeesService {
 
     @Autowired
@@ -25,13 +22,13 @@ public class EmployeesServiceImpl implements IEmployeesService {
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public EmployeesEntity addEmployee(EmployeesEntity employee) {
         return this.employeesDAO.addEmployee(employee);
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public EmployeesEntity removeEmployee(final int id) {
         return this.employeesDAO.removeEmployee(id);
     }

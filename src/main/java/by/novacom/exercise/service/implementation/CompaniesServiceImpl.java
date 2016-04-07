@@ -1,14 +1,11 @@
 package by.novacom.exercise.service.implementation;
 
-import by.novacom.exercise.dao.implementation.CompaniesDAOImpl;
 import by.novacom.exercise.dao.interfaces.ICompaniesDAO;
 import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.entities.EmployeesEntity;
 import by.novacom.exercise.service.interfaces.ICompaniesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,7 +14,7 @@ import java.util.List;
  */
 
 @Service
-@Transactional(readOnly = true)
+//@Transactional(readOnly = true)
 public class CompaniesServiceImpl implements ICompaniesService {
 
     @Autowired
@@ -39,13 +36,13 @@ public class CompaniesServiceImpl implements ICompaniesService {
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public CompaniesEntity addCompany(CompaniesEntity company) {
         return this.companiesDAO.addCompany(company);
     }
 
     @Override
-    @Transactional
+//    @Transactional
     public CompaniesEntity removeCompany(final int id) {
         return this.companiesDAO.removeCompany(id);
     }

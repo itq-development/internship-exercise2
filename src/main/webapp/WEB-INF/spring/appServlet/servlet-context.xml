@@ -15,21 +15,24 @@
 
 	<context:component-scan base-package="by.novacom.exercise"/>
 
-	<!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<beans:bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
-	<beans:bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
-		<beans:property name="transactionInterceptor">
-			<beans:bean class="org.springframework.transaction.interceptor.TransactionInterceptor">
-				<beans:property name="transactionManager" ref="transactionManager"/>
-				<beans:property name="transactionAttributeSource">
-					<beans:bean
-							class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
-				</beans:property>
-			</beans:bean>
-		</beans:property>
-	</beans:bean>
+
+	<!--<beans:bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
+
+	<!--<beans:bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">-->
+		<!--<beans:property name="transactionInterceptor">-->
+			<!--<beans:bean class="org.springframework.transaction.interceptor.TransactionInterceptor">-->
+				<!--<beans:property name="transactionManager" ref="transactionManager"/>-->
+				<!--<beans:property name="transactionAttributeSource">-->
+					<!--<beans:bean-->
+							<!--class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>-->
+				<!--</beans:property>-->
+			<!--</beans:bean>-->
+		<!--</beans:property>-->
+	<!--</beans:bean>-->
 
 	<resources mapping="/resources/**" location="/resources/"/>
 
@@ -71,6 +74,6 @@
 
 	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
 
-	<beans:bean class="by.novacom.exercise.aspects.DeleteCompaniesWatcher"/>
+	<!--<beans:bean class="by.novacom.exercise.aspects.DeleteCompaniesWatcher"/>-->
 
 </beans:beans>

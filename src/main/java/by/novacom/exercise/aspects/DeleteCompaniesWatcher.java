@@ -4,20 +4,18 @@ import by.novacom.exercise.entities.CompaniesEntity;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by byaxe on 4/8/16.
  */
+@Service
 @Aspect
+@Transactional(readOnly = true)
 public class DeleteCompaniesWatcher {
 
-    @Pointcut("execution(* by.novacom.exercise.dao.interfaces.ICompaniesDAO.removeCompany(..))")
-    private void tryToRemoveCompany() {
-    }
-
-
-    @Around(value = "tryToRemoveCompany()")
+    @Around("execution(* by.novacom.exercise.dao.interfaces.ICompaniesDAO.removeCompany(..))")
     public void onCompanyRemove(ProceedingJoinPoint joinPoint) {
         CompaniesEntity company;
         try {

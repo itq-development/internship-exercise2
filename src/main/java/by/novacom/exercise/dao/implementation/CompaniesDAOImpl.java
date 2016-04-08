@@ -67,8 +67,6 @@ public class CompaniesDAOImpl extends GenericAbstractDAO implements ICompaniesDA
 
         entityManager.remove(removedCompany);
 
-        if(true) throw new RuntimeException();
-
         return removedCompany;
     }
 }

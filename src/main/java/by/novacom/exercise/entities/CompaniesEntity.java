@@ -51,6 +51,7 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
     }
 
     @ManyToOne(targetEntity = CompaniesEntity.class)
+    @JoinColumn(name = "parent")
     public CompaniesEntity getParent() {
         return parent;
     }
@@ -59,7 +60,7 @@ public class CompaniesEntity extends AbstractEntity implements Serializable {
         this.parent = parent;
     }
 
-    @OneToMany
+    @OneToMany(mappedBy = "parent")
     public Set<CompaniesEntity> getChildren() {
         return children;
     }

@@ -74,27 +74,27 @@
     <hr>
 
     <div class="row">
-        <div class="col-md-6">
-            <h2>Add Company</h2>
-            <br>
-            <form:form method="POST" commandName="company" action="${addCompany}">
-                <div class="form-group">
-                    <div class="form-group-sm">
-                        <form:label path="title">Enter the company's title:</form:label>
-                        <form:input path="title" cssClass="form-horizontal"/>
-                    </div>
-                    <div class="form-group-sm">
-                        <form:label path="slogan">Enter the slogan (if present):</form:label>
-                        <form:input path="slogan" cssClass="form-horizontal"/>
-                    </div>
-                    <div class="form-group-sm">
-                        <form:label path="parent">Enter the parent-structure:</form:label>
-                        <form:input path="parent" cssClass="form-horizontal"/>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-default">Add</button>
-            </form:form>
-        </div>
+        <%--        <div class="col-md-6">
+                    <h2>Add Company</h2>
+                    <br>
+                    <form:form method="POST" commandName="company" action="${addCompany}">
+                        <div class="form-group">
+                            <div class="form-group-sm">
+                                <form:label path="title">Enter the company's title:</form:label>
+                                <form:input path="title" cssClass="form-horizontal"/>
+                            </div>
+                            <div class="form-group-sm">
+                                <form:label path="slogan">Enter the slogan (if present):</form:label>
+                                <form:input path="slogan" cssClass="form-horizontal"/>
+                            </div>
+                            <div class="form-group-sm">
+                                <form:label path="parent">Enter the parent-structure:</form:label>
+                                <form:input path="parent" cssClass="form-horizontal"/>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-default">Add</button>
+                    </form:form>
+                </div>--%>
         <div class="col-md-6">
             <h2>Remove Company</h2>
             <br>

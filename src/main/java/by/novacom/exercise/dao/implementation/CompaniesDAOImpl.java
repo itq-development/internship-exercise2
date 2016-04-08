@@ -5,12 +5,10 @@ import by.novacom.exercise.dao.interfaces.ICompaniesDAO;
 import by.novacom.exercise.entities.CompaniesEntity;
 import by.novacom.exercise.entities.EmployeesEntity;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 /**
  * Created by byaxe on 4/5/16.
@@ -48,12 +46,28 @@ public class CompaniesDAOImpl extends GenericAbstractDAO implements ICompaniesDA
 
     @Override
     @Transactional
+    public EmployeesEntity addEmployee(EmployeesEntity employee, CompaniesEntity company) {
+        Set<EmployeesEntity> newEmployees = company.getEmployees();
+
+        newEmployees.add(employee);
+
+        company.setEmployees(newEmployees);
+
+        entityManager.persist(company);
+
+        return employee;
+    }
+
+    @Override
+    @Transactional
     public CompaniesEntity removeCompany(final int id) {
         CompaniesEntity removedCompany = entityManager
                 .createQuery("SELECT c FROM CompaniesEntity c WHERE id = :id",
                         CompaniesEntity.class).setParameter("id", id).getSingleResult();
 
         entityManager.remove(removedCompany);
+
+        if(true) throw new RuntimeException();
 
         return removedCompany;
     }

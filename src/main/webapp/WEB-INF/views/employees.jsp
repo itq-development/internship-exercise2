@@ -5,6 +5,9 @@
 
 <jsp:include page="../views/components/head.jsp"/>
 
+
+<c:url value="/employees/employees/where/does/he/work" var="workPlace"/>
+
 <body>
 
 <header>
@@ -17,22 +20,48 @@
 
 <div class="container">
     <div class="center">
-        <h2>Get users via Structure</h2>
+        <h2>Get information about Employees</h2>
     </div>
 </div>
 <hr>
 <div class="container min-height">
     <div class="row">
-<%--        <div class="col-md-3 center">
-            <form:form method="GET" commandName="company" action="/employees">
+        <div class="col-md-6 center">
+            <form class="col-md-4" method="POST" action="${workPlace}">
                 <div class="form-group">
-                    <form:label path="id">Enter the structure id </form:label>
-                    <form:input type="number" path="id" class="form-control"/>
+                    <form:label path="selectedEmployee">Choose employee:</form:label>
+                    <form:select name="selectedEmployee" path="selectedEmployee" cssClass="form-horizontal">
+                        <form:options items="${entireEmployeesList}" itemValue="id" itemLabel="name"/>
+                    </form:select>
                 </div>
                 <button type="submit" class="btn btn-default">Find!</button>
-            </form:form>
-        </div>--%>
-        <div class="col-md-9 center">
+            </form>
+            <div class="col-md-8 result">
+
+                <table class=" table table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>title</th>
+                        <th>slogan</th>
+                        <th>parent</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${queriedCompanies}" var="targetCompany">
+                        <tr>
+                            <th scope="row">${targetCompany.id}</th>
+                            <td>${targetCompany.title}</td>
+                            <td>${targetCompany.slogan}</td>
+                            <td>${targetCompany.parent.title} (${targetCompany.parent.id})</td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-6 center">
             <div class="row">
                 <c:forEach items="${employeesList}" var="employees">
                     <div class="col-md-6">

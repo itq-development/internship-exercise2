@@ -14,7 +14,6 @@ import java.util.List;
  */
 
 @Service
-//@Transactional(readOnly = true)
 public class CompaniesServiceImpl implements ICompaniesService {
 
     @Autowired
@@ -36,13 +35,16 @@ public class CompaniesServiceImpl implements ICompaniesService {
     }
 
     @Override
-//    @Transactional
     public CompaniesEntity addCompany(CompaniesEntity company) {
         return this.companiesDAO.addCompany(company);
     }
 
     @Override
-//    @Transactional
+    public EmployeesEntity addEmployee(EmployeesEntity employee, CompaniesEntity company) {
+        return this.companiesDAO.addEmployee(employee, company);
+    }
+
+    @Override
     public CompaniesEntity removeCompany(final int id) {
         return this.companiesDAO.removeCompany(id);
     }

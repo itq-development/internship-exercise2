@@ -5,17 +5,31 @@
 			 xmlns:context="http://www.springframework.org/schema/context"
 			 xmlns:p="http://www.springframework.org/schema/p"
 			 xmlns:mvc="http://www.springframework.org/schema/mvc"
-			 xmlns:tx="http://www.springframework.org/schema/tx"
+			 xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 			 xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<mvc:annotation-driven/>
 
 	<context:component-scan base-package="by.novacom.exercise"/>
 
-	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+	<beans:bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+	<beans:bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+		<beans:property name="transactionInterceptor">
+			<beans:bean class="org.springframework.transaction.interceptor.TransactionInterceptor">
+				<beans:property name="transactionManager" ref="transactionManager"/>
+				<beans:property name="transactionAttributeSource">
+					<beans:bean
+							class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>
+				</beans:property>
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
 
 	<resources mapping="/resources/**" location="/resources/"/>
 
@@ -25,7 +39,6 @@
 	</beans:bean>
 
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<!--org.apache.commons.dbcp.BasicDataSource-->
 		<beans:property name="driverClassName" value="org.postgresql.Driver"/>
 		<beans:property name="url" value="jdbc:postgresql://localhost:5432/info_db"/>
 		<beans:property name="username" value="byaxe"/>
@@ -47,7 +60,6 @@
 				<beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</beans:prop>
 			</beans:props>
 		</beans:property>
-
 	</beans:bean>
 
 	<beans:bean depends-on="entityManagerFactory" name="transactionManager"
@@ -58,5 +70,7 @@
 	</beans:bean>
 
 	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+
+	<beans:bean class="by.novacom.exercise.aspects.DeleteCompaniesWatcher"/>
 
 </beans:beans>

@@ -19,21 +19,6 @@
 
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
-
-	<!--<beans:bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
-
-	<!--<beans:bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">-->
-		<!--<beans:property name="transactionInterceptor">-->
-			<!--<beans:bean class="org.springframework.transaction.interceptor.TransactionInterceptor">-->
-				<!--<beans:property name="transactionManager" ref="transactionManager"/>-->
-				<!--<beans:property name="transactionAttributeSource">-->
-					<!--<beans:bean-->
-							<!--class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource"/>-->
-				<!--</beans:property>-->
-			<!--</beans:bean>-->
-		<!--</beans:property>-->
-	<!--</beans:bean>-->
-
 	<resources mapping="/resources/**" location="/resources/"/>
 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -73,7 +58,5 @@
 	</beans:bean>
 
 	<beans:bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
-
-	<!--<beans:bean class="by.novacom.exercise.aspects.DeleteCompaniesWatcher"/>-->
 
 </beans:beans>

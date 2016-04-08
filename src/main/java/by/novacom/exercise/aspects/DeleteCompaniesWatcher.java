@@ -20,7 +20,7 @@ public class DeleteCompaniesWatcher {
         CompaniesEntity company;
         try {
             company = (CompaniesEntity) joinPoint.proceed();
-            if (!company.getChildren().isEmpty()) throw new Exception();
+            if (!company.getChildren().isEmpty() || !company.getEmployees().isEmpty()) throw new Exception();
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

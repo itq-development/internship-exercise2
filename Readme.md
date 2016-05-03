@@ -44,7 +44,7 @@ npm: https://docs.npmjs.com/getting-started/installing-node
 
 1. Open the Terminal (or Windows Command Prompt) in the `fueltra` folder.
 
-1. Run `npm install`
+1. (This step is needed for the first launch only) Run `npm install`
 
 2. Run `npm start`
 

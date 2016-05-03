@@ -22,7 +22,7 @@ _The output, however, can be similar to the next one_:
 _And if it is, it's recommended that you update Node.js on your machine_. 
 
 ###2. [npm][]
-Node.js should be installed.
+NPM should be installed.
 To see if npm is installed, open Terminal (or  — if you are on Windows — the Windows Command Prompt), and type:
 
 `npm -v`

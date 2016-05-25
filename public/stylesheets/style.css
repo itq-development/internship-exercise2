@@ -1,0 +1,29 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+input {
+    display: block;
+    margin-top: 5px;
+}
+
+.label {
+    margin-top: 10px;
+}
+
+#average-consumption-message{
+    font-size: 20px;
+}
+
+#average-consumption-result{
+    font-weight: bold;
+}
+
+.action{
+    margin-top: 10px;
+}
